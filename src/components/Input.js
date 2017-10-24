@@ -18,14 +18,14 @@ class Input extends Component {
     e.preventDefault();
     this.props.func(this.state.inputValue)
     this.setState({
-      inputValue : "" 
+      inputValue : ""
     });
   }
 
   render() {
     return (
         <form>
-          <input onChange={this.handleChange} value={this.state.inputValue}/>
+          <input onChange={this.handleChange} value={this.state.inputValue} placeholder="Code postal"/>
           <button onClick={this.handleClick}>Send</button>
         </form>
         );

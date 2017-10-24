@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Input from './Input';
 import Display from './Display';
 
-import logo from '../assets/logo.svg';
 import '../stylesheets/App.css';
 
 class App extends Component {
@@ -22,12 +21,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+        <h1>Trouvez un vélib à Paris</h1>
         <Input func={this.InputSearch}/>
-        <Display address={this.state.velibName}/>
+        <Display name={this.state.velibName}/>
+        {/* <Maps /> */}
       </div>
     );
   }

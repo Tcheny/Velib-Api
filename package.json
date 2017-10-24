@@ -5,8 +5,11 @@
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-google-maps": "^9.0.2",
+    "react-modal": "^3.0.4",
     "react-scripts": "1.0.14",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "spectre.css": "0.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
