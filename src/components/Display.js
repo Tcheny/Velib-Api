@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import ReactModal from 'react-modal';
 import request from 'request';
-import Modal from './Modal';
 
 import config from '../config';
 
@@ -10,8 +8,7 @@ class Display extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data : [], // state de data = []
-      showModal: false // state du Modal
+      data : [] // state de data = []
     };
   }
 
@@ -34,10 +31,6 @@ class Display extends Component {
     })
   }
 
-  handleModal=()=>{
-     this.setState({ showModal: !this.state.showModal });
-   }
-
   render() {
 
     return (
@@ -45,7 +38,7 @@ class Display extends Component {
         <ul className="List">
           {this.state.data.map((stations, index) => {
             return <div className="station">
-                <li key={index} onClick={this.handleModal}>
+                <li key={index}>
                   {stations.name.slice(8)}
                   <div>
                     <p>
