@@ -18,5 +18,5 @@
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject"
     },
-    "homepage": "https://tcheny.github.io/velib-api"
+    "homepage": "https://tcheny.github.io/Velib-Api"
 }
