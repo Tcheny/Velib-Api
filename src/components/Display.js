@@ -10,22 +10,27 @@ class Display extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data : [],
-      showModal: false
+      data : [], // state de data = []
+      showModal: false // state du Modal
     };
   }
 
+  //
   componentWillReceiveProps(nextProps) {
+    // request permet de faire une requête à l'API JCD pour récuperer la donnée.
     request(`https://api.jcdecaux.com/vls/v1/stations?contract=paris&apiKey=${config.jcdKey}`, (err, res, body) => {
+      // filtre la donnée
       let query = JSON.parse(body).filter(stations => {
-        let regex = new RegExp(nextProps.name, 'gi');
-        return stations.address.match(regex)
+        // RegExp de notre state velibNum
+        let VelibNumregex = new RegExp(nextProps.num, 'gi');
+        // filtre la donnée pour match avec l'input de la state velibNum
+        return stations.address.match(VelibNumregex)
         })
 
     this.setState({
-        data : query
+        data : query,
         })
-      console.log(this.state.data[0]);
+        console.log(this.state.data);
     })
   }
 
@@ -34,32 +39,35 @@ class Display extends Component {
    }
 
   render() {
-    // let noNum = new RegExp(/[\d-]/, 'g')
+
     return (
       <div className="Display">
         <ul className="List">
           {this.state.data.map((stations, index) => {
-            return(
-              <div className="station">
-                <li key={index} onClick={this.handleModal}> {stations.name.slice(8)}
-                  <Modal
-                    openModal={this.state.showModal}
-                    address={stations.address}
-                    place={stations.bike_stands}
-                    emplacement={stations.available_bike_stands}
-                    disponible={stations.available_bikes}
-                    closeModal={this.handleModal}/>
+            return <div className="station">
+                <li key={index} onClick={this.handleModal}>
+                  {stations.name.slice(8)}
+                  <div>
+                    <p>
+                      {stations.address}
+                    </p>
+                    <p>
+                      Place total : {stations.bike_stands}
+                    </p>
+                    <p>
+                      Emplacements disponible : {stations.available_bike_stands}
+                    </p>
+                    <p>
+                      Vélibs disponible : {stations.available_bikes}
+                    </p>
+                  </div>
                 </li>
-              </div>
-
-            )
+              </div>;
           })}
         </ul>
-
       </div>
     );
   }
-
 }
 
 export default Display;

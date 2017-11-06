@@ -8,13 +8,13 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      velibName : ""
+      velibNum : "" // state velibNum vide
     };
   }
 
   InputSearch=(inputVal)=>{
     this.setState({
-      velibName : inputVal
+      velibNum : inputVal // state velibNum = la valeur de input
     });
   }
 
@@ -23,8 +23,7 @@ class App extends Component {
       <div className="App">
         <h1>Trouvez un vélib à Paris</h1>
         <Input func={this.InputSearch}/>
-        <Display name={this.state.velibName}/>
-        {/* <Maps /> */}
+        <Display num={this.state.velibNum}/>
       </div>
     );
   }
