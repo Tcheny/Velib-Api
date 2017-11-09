@@ -27,7 +27,7 @@ class Input extends Component {
   render() {
     return (
         <form>
-          <input onChange={this.handleChange} value={this.state.inputValue} placeholder="Code postal"/>
+          <input onChange={this.handleChange} value={this.state.inputValue} placeholder="🔍 Code postal"/>
           <button onClick={this.handleClick}>SEND</button>
         </form>
         );
